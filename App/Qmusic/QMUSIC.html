@@ -1,0 +1,33 @@
+<!--
+  ~ Copyright (c) 2024.  By Canfeng
+  -->
+
+<!--
+  ~ Copyright (c) 2024.  By Canfeng
+  -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器</title>
+    <link rel="stylesheet" href="./QMusic.css">
+    <script src="./QMUSIC.js" defer></script>
+</head>
+<body>
+<div id="player">
+    <audio id="audio" controls></audio>
+    <div id="controls">
+        <button id="prev">上一首</button>
+        <button id="play-pause">播放/暂停</button>
+        <button id="next">下一首</button>
+        <button id="loop">循环播放</button>
+    </div>
+    <div id="lyrics"></div>
+    <input type="file" id="audio-upload" accept="audio/*" multiple>
+    <input type="file" id="lyrics-upload" accept=".lrc" multiple>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

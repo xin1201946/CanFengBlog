@@ -12,30 +12,9 @@ function change_background_image_tools(){
 function change_video_tools(str){
     if (str === 'help' || str==='HELP' || str === null || str=== undefined){
         console.info('可用参数 -> 类型 -> 本地映射')
-        console.info('cat -> 视频 -> cat.mp4')
         console.info('sea -> 视频 -> sea.mp4')
-        console.info('wood -> 视频 -> senlin.mp4')
-        console.info('water -> 视频 -> bingchuan.mp4')
-        console.info('apoc -> 视频 -> Apoc.mp4')
-        console.info('cyber -> 视频 -> Cyber_Car.mp4')
-        console.info('Other_Video_Url -> 视频Url')
-    }else if (str === 'cat'){
-        document.getElementById("v1").src='./video/cat.mp4'
-        document.getElementById("v1").play()
     }else if (str === 'sea'){
         document.getElementById("v1").src='./video/sea.mp4'
-        document.getElementById("v1").play()
-    }else if (str === 'wood'){
-        document.getElementById("v1").src='./video/senlin.mp4'
-        document.getElementById("v1").play()
-    }else if (str === 'water'){
-        document.getElementById("v1").src='./video/bingchuan.mp4'
-        document.getElementById("v1").play()
-    }else if (str === 'cyber'){
-        document.getElementById("v1").src='./video/Cyber_Car.mp4'
-        document.getElementById("v1").play()
-    }else if (str === 'apoc'){
-        document.getElementById("v1").src='./video/Apoc.mp4'
         document.getElementById("v1").play()
     }else if (str === 'close') {
         document.getElementById("v1").src = null
@@ -65,9 +44,7 @@ function ReflashHotikoto_tools(str){
         });
     
 }
-function  send_about_message(){
-    showNotification('欢迎访问 CanFeng的小站','站点地址: https://canfeng.kesug.com/',4000)
-}
+
 function close_notify_message(){
     showNotification('','',0)
 }
@@ -81,7 +58,6 @@ function tools_help(){
 }
 const yiyan = document.querySelector('.yiyanbutton');
 yiyan.addEventListener('click', ReflashHotikoto);
-const user_image=document.querySelector('#user_image');
-user_image.addEventListener('click',send_about_message)
+
 const close_notify =document.querySelector('#close_notify_button')
 close_notify.addEventListener('click',close_notify_message)
