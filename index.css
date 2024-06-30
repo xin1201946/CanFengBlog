@@ -1,14 +1,20 @@
-
+@font-face {
+  font-family: UNDERTALE;
+  src: url("./fonts/UNDERTALE.woff") format('woff');
+}
 html {
-
+  scroll-behavior: smooth;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: none;
+
 }
 body{
   background-image: url(./images/bizhi.jpg);
   background-size: 100% 100%;
   background-attachment: fixed;
+  margin: -8px; /* 去除body的默认边距 */
+  background-color: transparent;
 }
 /*全局设置字体*/
 video{
@@ -24,7 +30,7 @@ video{
 
 *{
   font-size: medium;
-  font-family: Noto Sans SC, sans-serif;
+  font-family:'SF Pro', sans-serif;
   transition-duration: 0.4s;
   -webkit-transition-duration: 0.4s;
   color: white;
@@ -38,6 +44,7 @@ header{
   position: fixed;
   z-index: 999;
   text-align: center;
+  top: 0;
 }
 a{
   color: #f57c3a;
@@ -47,6 +54,7 @@ a:hover{
   color: rgba(255, 255, 255, 0.73);
   text-decoration: #ee0000;
   cursor:pointer;
+  border-bottom: 1px solid red;
 }
 li {
   display: inline-block;
@@ -59,6 +67,49 @@ img{
 p{
   vertical-align: middle;
 }
+input[type="checkbox"] {
+  /*OFF*/
+  appearance: none;
+  width: 64px;
+  height: 32px;
+  position: relative;
+  border-radius: 16px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.32);
+}
+input[type="checkbox"]:before {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  /*BUTTON COLOR*/
+  background: rgb(255, 255, 255);
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: left cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+}
+input[type="checkbox"]:after {
+  content: '🌑  🌝';
+  text-indent: 9px;
+  word-spacing: 2px;
+  display: inline-block;
+  white-space: nowrap;
+  color: white;
+  font: 14px/30px monospace;
+  font-weight: bold;
+}
+input[type="checkbox"]:checked {
+  /*ON*/
+  background-color: rgba(6, 1, 2, 0.78);
+}
+input[type="checkbox"]:checked:before {
+  background-color: rgb(45, 45, 45);
+  left: 34px;
+}
+input[type="checkbox"]:checked:after {
+  color: rgb(0, 0, 0);
+}
 .notification {
 
   z-index: 1001;
@@ -68,7 +119,6 @@ p{
   right:2%;
   width: 95%;
   height: auto;
-  background-color: rgba(255, 255, 255, 0.07); /* 背景色 */
   backdrop-filter: saturate(200%) blur(50px);
   color: rgba(255, 255, 255, 0.56); /* 文字颜色 */
   padding: 10px; /* 内边距 */
@@ -110,7 +160,7 @@ p{
 .button{
   text-align: center;
   background-color: rgba(248,217,217,0);
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(20px);
   cursor: pointer;
   border-style: none;
   z-index: 1000;
@@ -168,10 +218,8 @@ p{
 .biaotiname{
   margin-top:9%;
   top:99%;
+  width: auto;
   cursor:default;font-size: 50px;color: rgb(255,255,255);font-family: 'Pacifico', cursive;
-}
-.biaotiname:hover{
-  color: rgba(0, 0, 0, 0.62);
 }
 .headers{
   width: auto;
@@ -237,8 +285,8 @@ p{
   width: 50px;
   height: 50px;
   position: fixed; /* 固定位置 */
-  left: 95%;
-  top: 67%;
+  left: 96%;
+  top: 75%;
 }
 .back-up:hover{
   color: rgb(0, 0, 0);
@@ -259,12 +307,24 @@ p{
 .yuanjiao{
   border-radius: 20px;
 }
-
+.close_notify_button1{
+  background-color: rgba(255, 255, 255, 0.09);
+  float: right;
+  text-align: left;
+  display: inline-block;
+  width:23px;
+  height: 23px;
+}
+.close_notify_button1:hover{
+  background-color: #ee0000;
+}
+.close_notify_button1:hover:before{
+  content: '⨉';
+}
 .close_notify_button:hover:after {
   content: ' 关闭';
   transform: translate(-50%);
   transition: all 0.3s ease;
-
 }
 .close_notify_button:hover {
   padding: 1px 10px; /* 调整按钮大小 */
@@ -279,20 +339,17 @@ p{
 .about_notify_button:hover {
   padding: 1px 10px; /* 调整按钮大小 */
 }
-#dialogContainer {
-  position: fixed;
-  top: 100px; /* 距离顶部100px */
-  left: 50%; /* 居中对齐 */
-  width: auto; /* 宽度占满屏幕 */
-  height: auto; /* 高度根据内容自适应 */
-
-  background-color: rgba(252, 252, 252, 0.06);
-  backdrop-filter: blur(20px);
-  display: none; /* 默认隐藏 */
+.dialogContainer {
+  z-index: 1001;
+  position: fixed; /* 固定定位 */
+  backdrop-filter:blur(0px);
+  color: rgba(255, 255, 255, 0.56); /* 文字颜色 */
+  padding: 10px; /* 内边距 */
   border-radius: 20px; /* 边框圆角 */
+  display: none; /* 默认不显示 */
   box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 阴影效果 */
 }
-#dialogContent{
+.dialogContent{
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: none;
